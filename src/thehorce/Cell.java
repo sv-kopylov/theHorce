@@ -5,6 +5,10 @@
  */
 package thehorce;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.BooleanPropertyBase;
+import javafx.beans.property.SimpleBooleanProperty;
+
 /**
  *
  * @author Сергей
@@ -14,14 +18,15 @@ public class Cell {
     int step;
     final int x, y;
     boolean curent;
-    boolean avilabel;
+    SimpleBooleanProperty disabled;
 
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
         step = 0;
         curent = false;
-        avilabel = false;
+        disabled = new SimpleBooleanProperty();
+        disabled.set(false);
 
     }
 
@@ -45,12 +50,12 @@ public class Cell {
         this.curent = curent;
     }
 
-    public boolean isAvilabel() {
-        return avilabel;
+    public boolean isDisabled() {
+        return disabled.get();
     }
 
-    public void setAvilabel(boolean avilabel) {
-        this.avilabel = avilabel;
+    public void setDisabled(boolean avilabel) {
+        this.disabled.set(avilabel);
     }
 
     public int getY() {
