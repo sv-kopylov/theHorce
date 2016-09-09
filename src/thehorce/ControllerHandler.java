@@ -7,21 +7,36 @@ package thehorce;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 
 /**
  *
  * @author Сергей
  */
 public class ControllerHandler implements EventHandler<ActionEvent> {
-    ModelField modelField;
 
-    public ControllerHandler(ModelField modelField) {
+    FieldModel modelField;
+
+    public ControllerHandler(FieldModel modelField) {
         this.modelField = modelField;
     }
-    
 
     @Override
     public void handle(ActionEvent event) {
+        Button b = (Button) event.getSource();
+        String s = b.getId();
+        modelField.updateField(parsX(s), parsY(s));
+        b.setText(Integer.toString(modelField.getStep()));
     }
-    
+
+    private int parsX(String str) {
+        String s = str.substring(0, str.indexOf('%'));
+        return Integer.parseInt(s);
+    }
+
+    private int parsY(String str) {
+        String s = str.substring(str.indexOf('%')+1);
+        return Integer.parseInt(s);
+    }
+
 }
