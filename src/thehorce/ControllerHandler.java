@@ -27,6 +27,7 @@ public class ControllerHandler implements EventHandler<ActionEvent> {
         String s = b.getId();
         modelField.updateField(parsX(s), parsY(s));
         b.setText(Integer.toString(modelField.getStep()));
+        b.setStyle("-fx-color: blue");
     }
 
     private int parsX(String str) {
