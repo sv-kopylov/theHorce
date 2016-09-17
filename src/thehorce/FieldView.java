@@ -42,6 +42,7 @@ public class FieldView {
               
                 buttons[i][j].setOnAction(controllerHandler);
                 buttons[i][j].setMinSize(40, 40);
+                buttons[i][j].setStyle("-fx-font: bold 12pt Arial;-fx-text-fill: #660000");
                 grid.add(buttons[i][j], i, j);
             }
             
