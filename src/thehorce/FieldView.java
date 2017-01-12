@@ -38,6 +38,7 @@ public class FieldView {
             for (int j=0; j<size; j++){
                 buttons[i][j]=new Button();
                 buttons[i][j].disableProperty().bind(modelField.getCell(i, j).disabled);
+//                buttons[i][j].backgroundProperty().bind();
                 buttons[i][j].setId(Integer.toString(i)+"%"+Integer.toString(j));
               
                 buttons[i][j].setOnAction(controllerHandler);
